@@ -31,12 +31,10 @@ def article(topic, filename):
     return render_template('article.html', title=title, paragraphs=paragraphs,recommend=recommend_articles)
 
 
-
-
 # initialization
 i = sys.argv.index('server:app')
-glove_filename = sys.argv[1]
-articles_dirname = sys.argv[2]
+glove_filename = sys.argv[i+1]
+articles_dirname = sys.argv[i+2]
 
 gloves = load_glove(glove_filename)
 articles = load_articles(articles_dirname, gloves)
